@@ -1,0 +1,276 @@
+$primary-color: rgb(200, 200, 245);
+$secondary-color: rgb(120, 186, 240);
+
+/*
+global components starts
+*/
+.-wrapper {
+  display: flex;
+}
+
+.-content-wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
+.simple-button {
+  height: 2.75rem;
+  width: 6rem;
+  border-radius: 5px;
+  border: none;
+  
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+/*
+global components ends
+*/
+
+
+
+/*Components Design*/
+/*########################################################################*/
+
+/*Inventory Card styling starts*/
+
+.inventory-card {
+  height: 10rem;
+  width: 25rem;
+}
+
+/*Inventory Card styling starts*/
+
+/*Product card component design starts*/
+.card {
+  background-color: #d1e7f1;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .productName {
+    color: #1f456e;
+    margin-top: 0;
+  }
+
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+    p {
+      margin: 0;
+      flex-basis: 50%;
+    }
+
+    .quantity {
+      color: #327da0;
+    }
+
+    .unitPrice {
+      color: #327da0;
+    }
+
+    .totalPrice {
+      color: #327da0;
+      font-weight: bold;
+    }
+  }
+}
+/*Product Card component ends*/
+
+
+
+/*Navbar component starts*/
+
+.navbar {
+  display: flex;
+  background-color: #bbd1f7;
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  
+  h1{
+    margin-left: 2.5vw;
+    font-weight: 100;
+
+    span {
+      color: rgb(236, 87, 28);
+      font-weight: bold;
+    }
+  }
+
+  .logout-button{
+    margin-right: 2.5vw;
+    background-color: orange;
+    font-size: 17px;
+    font-weight: bold;
+  }
+}
+
+/*Navbar component ends*/
+
+  /*Sidebar component starts*/
+
+  .sidebar-container {
+    display: flex;
+  }
+
+  
+  .sidebar {
+    background: black;
+    color: white;
+    height: 100vh;
+    width: 320px;
+
+    h1{
+      font-size: 30px;
+    }
+
+    .bars {
+      font-size: 30px;
+      display: flex;
+      margin-left: 90px;
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    .link {
+      display: flex;
+      color: white;
+      padding: 15px 15px;
+      gap: 15px;
+      transition: all 0.5s;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      background: skyblue;
+      color: black;
+      transition: all 0.5s;
+    }
+
+  }
+
+  .sidebar-top {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 55px;
+  }
+
+  .link-text {
+    font-size: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .icon {
+    font-size: 30px;
+  }
+  
+
+  /*Sidebar component ends*/
+  
+  /*Log in Styling starts*/
+  
+  .login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      padding-bottom: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    
+    
+  }
+  
+  .login-register-form {
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #444;
+    }
+    
+    input {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #F0F8FF;
+      color: #444;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+    
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #0F52BA;
+      color: #fff;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: #0052CC;
+      }
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(15, 82, 186, 0.5);
+      }
+    }
+  }
+  
+  /*Log in component ends*/
+
+  /*Components Design*/
+/*########################################################################*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*pages Design*/
+/*########################################################################*/
+
+/*Inventory page starts*/
+
+
