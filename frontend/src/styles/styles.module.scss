@@ -31,7 +31,7 @@ global components ends
 
 
 
-/*Components Design*/
+/*Components Design starts*/
 /*########################################################################*/
 
 /*Inventory Card styling starts*/
@@ -114,69 +114,69 @@ global components ends
 
 /*Navbar component ends*/
 
-  /*Sidebar component starts*/
+/*Sidebar component starts*/
 
-  .sidebar-container {
-    display: flex;
-  }
+.sidebar-container {
+  display: flex;
+}
 
-  
-  .sidebar {
-    background: black;
-    color: white;
-    height: 100vh;
-    width: 320px;
 
-    h1{
-      font-size: 30px;
-    }
+.sidebar {
+  background: black;
+  color: white;
+  height: 100vh;
+  width: 320px;
 
-    .bars {
-      font-size: 30px;
-      display: flex;
-      margin-left: 90px;
-      :hover {
-        cursor: pointer;
-      }
-    }
-
-    .link {
-      display: flex;
-      color: white;
-      padding: 15px 15px;
-      gap: 15px;
-      transition: all 0.5s;
-      text-decoration: none;
-    }
-
-    .link:hover {
-      background: skyblue;
-      color: black;
-      transition: all 0.5s;
-    }
-
-  }
-
-  .sidebar-top {
-    display: flex;
-    align-items: center;
-    padding-left: 15px;
-    padding-top: 25px;
-    padding-bottom: 55px;
-  }
-
-  .link-text {
-    font-size: 25px;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .icon {
+  h1{
     font-size: 30px;
   }
-  
 
-  /*Sidebar component ends*/
+  .bars {
+    font-size: 30px;
+    display: flex;
+    margin-left: 90px;
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .link {
+    display: flex;
+    color: white;
+    padding: 15px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+    text-decoration: none;
+  }
+
+  .link:hover {
+    background: skyblue;
+    color: black;
+    transition: all 0.5s;
+  }
+
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-top: 25px;
+  padding-bottom: 55px;
+}
+
+.link-text {
+  font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+
+/*Sidebar component ends*/
   
   /*Log in Styling starts*/
   
@@ -251,8 +251,8 @@ global components ends
   
   /*Log in component ends*/
 
-  /*Components Design*/
-/*########################################################################*/
+  /*########################################################################*/
+  /*Components Design ends*/
 
 
 
@@ -268,7 +268,7 @@ global components ends
 
 
 
-  /*pages Design*/
+/*pages Design*/
 /*########################################################################*/
 
 /*Inventory page starts*/
