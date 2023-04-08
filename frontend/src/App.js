@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getLoginStatus } from './services/authService';
-import { SET_LOGIN } from './redux/features/authSlice';
+import { SET_LOGIN } from './redux/features/auth/authSlice';
 
 
 

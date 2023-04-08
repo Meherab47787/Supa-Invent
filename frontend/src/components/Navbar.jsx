@@ -1,6 +1,6 @@
 import styles from '../styles/styles.module.scss';
 import { useSelector } from "react-redux";
-import { SET_LOGIN, selecName } from "../redux/features/authSlice"
+import { SET_LOGIN, selecName } from "../redux/features/auth/authSlice"
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

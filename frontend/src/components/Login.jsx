@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { SET_LOGIN, SET_NAME } from '../redux/features/authSlice';
+import { SET_LOGIN, SET_NAME } from '../redux/features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
