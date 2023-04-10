@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoute');
 const productRoutes = require('./routes/productRoute');
+const supplierRoutes = require('./routes/supplierRoute')
 const AppError = require('./util/appError');
 const globalErrorHandler = require('./controllers/globalErrorHandler');
 const cors = require('cors');
@@ -31,8 +32,9 @@ app.use(function (req, res, next) {
 });
 
 //Route Middlewares
-app.use('/api/v1/users', userRoutes)
-app.use('/api/v1/products', productRoutes)
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/supplier', supplierRoutes);
 
 
 app.get('/', (req, res) => {
