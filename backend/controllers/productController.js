@@ -4,7 +4,10 @@ const AppError = require('../util/appError');
 
 
 exports.getAllProducts = catchAsync(async (req, res, next) => {
-    const products = await Product.find();
+    const products = await Product.find().populate({
+        path: 'supplier',
+        select: '-__v -_id'
+    });
 
     res
        .status(200)

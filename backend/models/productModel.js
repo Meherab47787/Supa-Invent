@@ -19,9 +19,25 @@ const productSchema = mongoose.Schema({
     },
 
     supplier: {
-        type: Number
+        type: mongoose.Schema.ObjectId,
+        ref: 'Supplier'
+    },
+
+    arrivalDate: {
+        type: Date,
+        default: Date.now
     }
 })
+
+
+// productSchema.pre('save', async function(next){
+
+//     const supplier = await Supplier.findById(this.supplier)
+
+//     this.supplier = supplier
+
+//     next()
+// })
 
 const Product = mongoose.model('Product', productSchema)
 

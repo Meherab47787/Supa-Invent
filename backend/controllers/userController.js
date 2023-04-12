@@ -71,11 +71,10 @@ exports.protect = catchAsync(async (req, res, next) => {
     let token;
 
     //1. getting the token and check if it is there
-    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
-        token = req.headers.authorization.split(' ')[1];
+    if(req.cookies.jwt){
+        token = req.cookies.jwt;
     }
 
-    console.log(token);
 
     if(!token){
         return next(new AppError('You are not logged in, please log in to continue',401))
@@ -83,7 +82,6 @@ exports.protect = catchAsync(async (req, res, next) => {
     //2. Verification Token
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
 
-    console.log(decoded);
     //3. Check if the user still exists
     const freshUser = await User.findById(decoded.id);
     if(!freshUser){

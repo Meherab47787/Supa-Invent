@@ -23,7 +23,7 @@ const supplierSchema = mongoose.Schema({
     phone: {
         type: String,
         require: true
-    },
+    }
 });
 
 
