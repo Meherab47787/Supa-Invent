@@ -13,6 +13,8 @@ router
       .route('/createProduct')
       .post(productController.createNewProduct);
 
-
+router
+      .route('/getProduct/:id')
+      .get(Authentication.protect, productController.getSpecificProduct)
 
 module.exports = router
