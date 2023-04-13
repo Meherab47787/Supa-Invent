@@ -17,7 +17,7 @@ exports.getAllProducts = catchAsync(async (req, res, next) => {
 })
 
 exports.getSpecificProduct = catchAsync(async (req, res, next) => {
-    const specefitProduct = await Product.findById(req.params.id).populate({
+    const speceficProduct = await Product.findById(req.params.id).populate({
         path: 'supplier',
         select: '-__v -_id'
     });
@@ -50,6 +50,26 @@ exports.createNewProduct = catchAsync(async (req, res, next) => {
                 newProduct
             }
        }) 
+})
+
+exports.deleteProduct = catchAsync(async (req, res, next) => {
+
+    const deleteProduct = await Product.findById(req.params.id)
+    if(!deleteProduct){
+        next(new AppError('The product doesnot exist', 404))
+    }
+
+    await deleteProduct.remove()
+
+    res
+       .status(200)
+       .json({
+        status: 'success',
+        data: {
+            message: `product '${deleteProduct.productName}' deleted`
+        }
+       })
+
 })
 
 

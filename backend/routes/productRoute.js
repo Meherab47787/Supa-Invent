@@ -17,4 +17,11 @@ router
       .route('/getProduct/:id')
       .get(Authentication.protect, productController.getSpecificProduct)
 
+router
+      .route('/deleteProduct/:id')
+      .delete(Authentication.protect, productController.deleteProduct)
+
+
+
+
 module.exports = router
