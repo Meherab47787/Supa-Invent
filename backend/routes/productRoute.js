@@ -1,6 +1,7 @@
 const express = require('express');
 const productController = require('../controllers/productController');
-const Authentication = require('../controllers/userController')
+const Authentication = require('../controllers/userController');
+const upload = require('../util/fileUpload')
 
 
 const router = express.Router();
@@ -11,7 +12,7 @@ router
 
 router  
       .route('/createProduct')
-      .post(productController.createNewProduct);
+      .post(Authentication.protect, upload.single('productImage'), productController.createNewProduct);
 
 router
       .route('/getProduct/:id')
@@ -24,6 +25,9 @@ router
 router
       .route('/updateProduct/:id')
       .patch(Authentication.protect, productController.updateProduct)
+
+
+
 
 
 module.exports = router

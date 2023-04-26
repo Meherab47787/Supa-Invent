@@ -26,6 +26,11 @@ const productSchema = mongoose.Schema({
     arrivalDate: {
         type: Date,
         default: Date.now
+    },
+
+    productImage: {
+        type: Object,
+        default: {}
     }
 })
 

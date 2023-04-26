@@ -9,6 +9,7 @@ const AppError = require('./util/appError');
 const globalErrorHandler = require('./controllers/globalErrorHandler');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
+const path = require('path')
 
 
 //Middlewares
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json())
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();
     next();

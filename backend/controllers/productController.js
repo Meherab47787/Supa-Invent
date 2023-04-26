@@ -40,7 +40,27 @@ exports.getSpecificProduct = catchAsync(async (req, res, next) => {
 })
 
 exports.createNewProduct = catchAsync(async (req, res, next) => {
-    const newProduct = await Product.create(req.body)
+
+    
+
+    let fileData = {};
+    if(req.file) {
+        fileData = {
+            fineName: req.file.originalName,
+            filePath: req.file.path,
+            fileType: req.file.mimetype,
+            fileSize: req.file.size
+        }
+    }
+
+    const newProduct = await Product.create({
+        productName: req.body.productName,
+        quantity: req.body.quantity,
+        unitPrice: req.body.unitPrice,
+        supplier: req.body.supplier,
+        arrivalDate: req.body.arrivalDate,
+        productImage: fileData
+    })
 
     res
        .status(201)
