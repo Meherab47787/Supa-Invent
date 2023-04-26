@@ -21,7 +21,9 @@ router
       .route('/deleteProduct/:id')
       .delete(Authentication.protect, productController.deleteProduct)
 
-
+router
+      .route('/updateProduct/:id')
+      .patch(Authentication.protect, productController.updateProduct)
 
 
 module.exports = router

@@ -1,0 +1,47 @@
+const multer = require('multer');
+
+
+//Define file storage
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '/uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.toISOString().replace(/:/g, '-') + file.originalname)
+    }
+  })
+
+
+//Specify file format that can be uploaded
+
+function fileFilter (req, file, cb) {
+
+    // The function should call `cb` with a boolean
+    // to indicate if the file should be accepted
+
+    if(
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/png' 
+    ){
+        // To accept the file pass `true`, like so:
+        cb(null, true)
+  
+    } else {
+        // To reject this file pass `false`, like so:
+        cb(null, false)
+    }
+  
+    
+  
+    // You can always pass an error if something goes wrong:
+    // cb(new Error('I don\'t have a clue!'))
+  
+  }
+
+
+  
+  const upload = multer({ storage, fileFilter })
+
+  module.exports = upload

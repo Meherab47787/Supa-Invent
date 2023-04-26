@@ -24,7 +24,7 @@ exports.getSpecificProduct = catchAsync(async (req, res, next) => {
 
     if(!speceficProduct){
         return next(new AppError('No products found with the input credential(s)', 404))
-    }
+    } 
 
     res
        .status(200)
@@ -70,6 +70,11 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
         }
        })
 
+})
+
+
+exports.updateProduct = catchAsync(async (req, res, next) =>{
+    res.send('Update Product')
 })
 
 
