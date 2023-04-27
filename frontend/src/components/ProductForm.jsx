@@ -31,7 +31,7 @@ const ProductForm = ({product, productImage, imagePreview, handleInputChange, ha
           <label htmlFor="supplier">Supplier</label>
           <input type="text" id="supplier" name="supplier" value={product?.supplier} onChange={handleInputChange} />
         </div>
-        <button type="submit">Add Product</button>
+        <button type="submit">Add Product</button> 
       </form>
     );
   };
