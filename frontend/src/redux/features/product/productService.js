@@ -8,9 +8,17 @@ const createProduct = async (formData) => {
 
 }
 
+const getAllProducts = async () => {
+
+    const response = await axios.post('/api/v1/products/getAllProducts')
+    return response.data
+
+}
+
 
 const productService = {
-    createProduct
+    createProduct,
+    getAllProducts
 }
 
 export default productService;
