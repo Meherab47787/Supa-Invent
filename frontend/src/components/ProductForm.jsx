@@ -27,10 +27,10 @@ const ProductForm = ({product, productImage, imagePreview, handleInputChange, ha
           <label htmlFor="unitPrice">Unit Price</label>
           <input type="text" id="unitPrice" name="unitPrice" value={product?.unitPrice} onChange={handleInputChange} required/>
         </div>
-        <div className={styles.formGroup}>
+        {/* <div className={styles.formGroup}>
           <label htmlFor="supplier">Supplier</label>
           <input type="text" id="supplier" name="supplier" value={product?.supplier} onChange={handleInputChange} />
-        </div>
+        </div> */}
         <button type="submit">Add Product</button> 
       </form>
     );

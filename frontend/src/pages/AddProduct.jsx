@@ -45,7 +45,6 @@ function AddProduct() {
     formData.append('productName', productName)
     formData.append('quantity', quantity)
     formData.append('unitPrice', unitPrice)
-    formData.append('supplier', supplier)
     formData.append('productImage', productImage)
 
     console.log(...formData);

@@ -18,7 +18,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         SET_LOGIN(state, action) {
-            state.isLoggedIn = action.payload.isLoggedIn
+            state.isLoggedIn = action.payload
         },
 
         SET_NAME(state, action) {

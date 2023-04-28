@@ -18,11 +18,6 @@ const productSchema = mongoose.Schema({
         require: true
     },
 
-    supplier: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Supplier'
-    },
-
     arrivalDate: {
         type: Date,
         default: Date.now
@@ -33,16 +28,6 @@ const productSchema = mongoose.Schema({
         default: {}
     }
 })
-
-
-// productSchema.pre('save', async function(next){
-
-//     const supplier = await Supplier.findById(this.supplier)
-
-//     this.supplier = supplier
-
-//     next()
-// })
 
 const Product = mongoose.model('Product', productSchema)
 

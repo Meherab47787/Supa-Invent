@@ -259,7 +259,10 @@ global components ends
   ProductForm Styling starts
   */
   .image-preview {
-    overflow: hidden;
+    img{
+      height: 300px;
+      width: 300px;
+    }
   }
 
   .productForm {

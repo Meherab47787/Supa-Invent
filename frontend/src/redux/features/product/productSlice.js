@@ -71,7 +71,6 @@ const productSlice = createSlice({
                     state.isError = true;
                     state.message = action.payload;
                     console.log(action.payload);
-                    state.products.push(action.payload);
                     toast.error(action.payload)
                 })
                 //getAll

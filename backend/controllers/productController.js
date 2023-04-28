@@ -57,7 +57,6 @@ exports.createNewProduct = catchAsync(async (req, res, next) => {
         productName: req.body.productName,
         quantity: req.body.quantity,
         unitPrice: req.body.unitPrice,
-        supplier: req.body.supplier,
         arrivalDate: req.body.arrivalDate,
         productImage: fileData
     })
