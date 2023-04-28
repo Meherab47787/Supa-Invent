@@ -5,11 +5,11 @@ import { toast } from 'react-toastify'
 
 const initialState = {
     product: null,
-    products: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
-    message: ''
+    message: '',
+    products: []
 }
 
 //Creating new product
@@ -61,8 +61,8 @@ const productSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.isError = false;
-                console.log(action.payload);
-                state.products.push(action.payload);
+                console.log(action.payload.newProduct);
+                console.log(typeof state.products)
                 toast.success('Product added successfully')
                 })
 
@@ -83,15 +83,13 @@ const productSlice = createSlice({
                 state.isSuccess = true;
                 state.isError = false;
                 console.log(action.payload);
-                state.products = action.payload;
+                state.products = action.payload
                 })
 
                 .addCase(getAllProducts.rejected, (state, action) => {
                     state.isLoading = false;
                     state.isError = true;
                     state.message = action.payload;
-                    console.log(action.payload);
-                    state.products.push(action.payload);
                     toast.error(action.payload)
                 })
     }

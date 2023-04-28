@@ -307,6 +307,74 @@ global components ends
   Product form Styling ends
   */
 
+
+  /*
+  ProductList styling
+  */
+
+
+  .icons {
+    span{
+      margin-left: 20px;
+    }
+  }
+
+  .product-list {
+    hr {
+      border: none;
+      border-top: 2px solid #eee;
+    }
+    .table {
+      margin-top: 20px;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        th, td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: left;
+          font-size: 14px;
+        }
+        th {
+          background-color: #eee;
+          font-weight: bold;
+        }
+        td {
+          &:nth-child(1) {
+            width: 5%;
+            text-align: center;
+          }
+          &:nth-child(2) {
+            width: 25%;
+          }
+          &:nth-child(3) {
+            width: 15%;
+          }
+          &:nth-child(4) {
+            width: 15%;
+          }
+          &:nth-child(5) {
+            width: 15%;
+          }
+          &:nth-child(6) {
+            width: 15%;
+          }
+          &:nth-child(7) {
+            width: 10%;
+            
+          }
+        }
+      }
+      p {
+        margin: 20px 0;
+        font-size: 16px;
+        color: #666;
+      }
+    }
+  }
+
+  /*ProductList styling ends*/
+
   /*########################################################################*/
   /*Components Design ends*/
 
