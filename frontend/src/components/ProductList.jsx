@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/styles.module.scss'
 import { FaEdit } from 'react-icons/fa'
 import { BsFillExclamationCircleFill } from 'react-icons/bs'
 import { AiFillDelete } from 'react-icons/ai'
+import Search from './Search';
+import { useDispatch, useSelector } from 'react-redux';
+import { FILTER_PRODUCTS, selectFilteredProducts } from '../redux/features/product/filterSlice';
 
 const ProductList = ({products, isLoading}) => {
+    
+    const [search, setSearch] = useState('')
+    const filteredProducts = useSelector(selectFilteredProducts)
+
+    const dispatch = useDispatch()
+
     const shortenText = (text, n) => {
         if(text.length> n){
             const shortenedText = text.substring(0, n).concat('...')
@@ -15,6 +24,10 @@ const ProductList = ({products, isLoading}) => {
 
     }
 
+    useEffect(() => {
+        dispatch(FILTER_PRODUCTS({products, search}))
+    }, [products, search, dispatch])
+
   return <div className={styles['product-list']}>
     <hr />
     <div className={styles['table']}>
@@ -23,7 +36,7 @@ const ProductList = ({products, isLoading}) => {
                 <h3 className={styles['table-heading']}>Inventory Items</h3>
             </span>
             <span>
-                <h3 className={styles['table-heading']}>Search Product</h3>
+                <h3 className={styles['table-heading']}><Search value={search} onChange={(e)=>setSearch(e.target.value)}/></h3>
             </span>
         </div>
 
@@ -45,8 +58,8 @@ const ProductList = ({products, isLoading}) => {
                     </thead>
 
                     <tbody>
-                        { products.products && products.products.length > 0 ? (
-                            products.products.map((product, index) => {
+                        { filteredProducts && filteredProducts.length > 0 ? (
+                            filteredProducts.map((product, index) => {
                                 const {_id, productName, quantity, unitPrice, arrivalDate} = product
                                 return(
                                     <tr key={_id}>
@@ -59,20 +72,20 @@ const ProductList = ({products, isLoading}) => {
                                         <td className={styles['icons']}>
                                                 <span>
                                                 
-                                                <FaEdit color='blue' size={25}/>
+                                                    <FaEdit color='blue' size={25}/>
 
                                                 </span>
                                             
                                                 <span>
                                                     
-                                                <BsFillExclamationCircleFill 
+                                                    <BsFillExclamationCircleFill 
                                                 color='purple' size={25}/>
 
                                                 </span>
 
                                                 <span>
 
-                                                <AiFillDelete color='red' size={25}/>
+                                                    <AiFillDelete color='red' size={25}/>
 
                                                 </span>
 

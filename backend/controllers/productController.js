@@ -10,9 +10,7 @@ exports.getAllProducts = catchAsync(async (req, res, next) => {
        .json({
             status: 'success',
             total: products.length,
-            data: {
-                products
-            }
+            products
        }) 
 })
 

@@ -11,7 +11,7 @@ const createProduct = async (formData) => {
 const getAllProducts = async () => {
 
     const response = await axios.get('/api/v1/products/getAllProducts')
-    return response.data.data
+    return response.data
 
 }
 

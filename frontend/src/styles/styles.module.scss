@@ -182,7 +182,7 @@ global components ends
 
 /*Sidebar component ends*/
   
-  /*Log in Styling starts*/
+  /*Log in Component Styling starts*/
   
   .login-form {
     position: absolute;
@@ -256,7 +256,7 @@ global components ends
   /*Log in component ends*/
 
   /*
-  ProductForm Styling starts
+  ProductForm component Styling starts
   */
   .image-preview {
     img{
@@ -304,7 +304,7 @@ global components ends
   }
 
    /*
-  Product form Styling ends
+  Product form Component Styling ends
   */
 
 
@@ -312,6 +312,12 @@ global components ends
   ProductList styling
   */
 
+  .flex-table-column{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
   .icons {
     span{
@@ -335,6 +341,9 @@ global components ends
           text-align: left;
           font-size: 14px;
         }
+        th:nth-child(1){
+          text-align: center;
+        }
         th {
           background-color: #eee;
           font-weight: bold;
@@ -343,6 +352,7 @@ global components ends
           &:nth-child(1) {
             width: 5%;
             text-align: center;
+            font-weight: bold;
           }
           &:nth-child(2) {
             width: 25%;
@@ -374,6 +384,29 @@ global components ends
   }
 
   /*ProductList styling ends*/
+
+
+  /*Search Component styling starts*/
+
+  .search{
+    display: flex;
+    justify-content: center;
+    input {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      width: 100%;
+      color: #333;
+      background-color: transparent;
+    }
+    input[type="text"]::placeholder {
+      color: #aaa;
+    }
+    
+    
+  }
+
+  /*Search Component styling ends*/
 
   /*########################################################################*/
   /*Components Design ends*/

@@ -63,6 +63,7 @@ const productSlice = createSlice({
                 state.isError = false;
                 console.log(action.payload.newProduct);
                 console.log(typeof state.products)
+                // state.products.push(action.payload);
                 toast.success('Product added successfully')
                 })
 
@@ -82,8 +83,8 @@ const productSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.isError = false;
-                console.log(action.payload);
-                state.products = action.payload
+                console.log(action.payload.products);
+                state.products = action.payload.products
                 })
 
                 .addCase(getAllProducts.rejected, (state, action) => {
