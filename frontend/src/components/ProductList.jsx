@@ -6,6 +6,7 @@ import { AiFillDelete } from 'react-icons/ai'
 import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_PRODUCTS, selectFilteredProducts } from '../redux/features/product/filterSlice';
+import ReactPaginate from 'react-paginate';
 
 const ProductList = ({products, isLoading}) => {
     
@@ -23,6 +24,25 @@ const ProductList = ({products, isLoading}) => {
         return text;
 
     }
+
+    //Pagination Begin
+        const [currentItems, setCurrentItems] = useState([]);
+        const [pageCount, setPageCount] = useState(0);
+        const [itemOffset, setItemOffset] = useState(0);
+        const itemsPerPage = 5;
+    
+        useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage;
+    
+            setCurrentItems(filteredProducts.slice(itemOffset, endOffset));
+            setPageCount(Math.ceil(filteredProducts.length / itemsPerPage));
+        }, [itemOffset, itemsPerPage, filteredProducts]);
+    
+        const handlePageClick = (event) => {
+            const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
+            setItemOffset(newOffset);
+        };
+    //End Pagination
 
     useEffect(() => {
         dispatch(FILTER_PRODUCTS({products, search}))
@@ -58,12 +78,12 @@ const ProductList = ({products, isLoading}) => {
                     </thead>
 
                     <tbody>
-                        { filteredProducts && filteredProducts.length > 0 ? (
-                            filteredProducts.map((product, index) => {
+                        { currentItems && currentItems.length > 0 ? (
+                            currentItems.map((product, index) => {
                                 const {_id, productName, quantity, unitPrice, arrivalDate} = product
                                 return(
                                     <tr key={_id}>
-                                        <td>{index+1}</td>
+                                        <td>{itemOffset + index + 1}</td>
                                         <td>{shortenText(productName, 16)}</td>
                                         <td>৳ {unitPrice}</td>
                                         <td>{quantity}</td>
@@ -103,7 +123,20 @@ const ProductList = ({products, isLoading}) => {
                 </table>
             )}
         </div>
-
+        <ReactPaginate
+            breakLabel="..."
+            nextLabel="Next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< Prev"
+            renderOnZeroPageCount={null}
+            containerClassName={styles.pagination}
+            pageLinkClassName={styles['page-num']}
+            previousLinkClassName={styles['page-num']}
+            nextLinkClassName={styles['page-num']}
+            activeLinkClassName={styles.activePage}
+        />             
 
     </div>
   </div>
