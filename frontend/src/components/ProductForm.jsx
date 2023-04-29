@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/styles.module.scss'
 
 const ProductForm = ({product, productImage, imagePreview, handleInputChange, handleImageChange, saveProduct}) => {

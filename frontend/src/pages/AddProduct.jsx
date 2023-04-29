@@ -3,8 +3,7 @@ import Sidebar from '../components/Sidebar'
 import styles from '../styles/styles.module.scss'
 import Navbar from '../components/Navbar'
 import ProductForm from '../components/ProductForm'
-import { useSelector } from 'react-redux';
-import { createProduct, selectIsLoading } from '../redux/features/product/productSlice';
+import { createProduct} from '../redux/features/product/productSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
@@ -24,9 +23,9 @@ function AddProduct() {
   const [productImage, setProductImage] = useState('')
   const [imagePreview, setImagePreview] = useState(null)
 
-  const isLoading = useSelector(selectIsLoading)
+  // const isLoading = useSelector(selectIsLoading)
 
-  const {productName, quantity, unitPrice, supplier} = product
+  const {productName, quantity, unitPrice} = product
 
 
   const handleInputChange = (e) => {
