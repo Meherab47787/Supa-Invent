@@ -11,6 +11,7 @@ import { selectISLoggedIn } from '../redux/features/auth/authSlice';
 import { useEffect } from 'react';
 import { getAllProducts } from '../redux/features/product/productSlice';
 import ProductList from '../components/ProductList';
+import ProductSummery from '../components/ProductSummery';
 
 
 
@@ -45,7 +46,7 @@ const Inventory = () => {
         <div className={styles['-content-wrapper']}>
 
           <Navbar/>
-          
+            <ProductSummery products={products}/>
             <ProductList products={products} isLoading={isLoading}/>
           
 
