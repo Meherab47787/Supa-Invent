@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from '../styles/styles.module.scss';
 
-const InfoBox = ({title, count, icon}) => {
+const InfoBox = ({title, count, icon, bgColor}) => {
   return (
-    <div className={styles['icon-box'] }>
+    <div className={`${styles['icon-box']} ${styles[bgColor]}`} >
         <span className={styles['info-icon']}>{icon}</span>
         <span className={styles['info-text']}>
             <p>{title}:</p>

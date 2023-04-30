@@ -46,7 +46,11 @@ const Inventory = () => {
         <div className={styles['-content-wrapper']}>
 
           <Navbar/>
-            <ProductSummery products={products}/>
+            <div className={styles['summery-holder']}>
+
+              <ProductSummery products={products}/>
+
+            </div>
             <ProductList products={products} isLoading={isLoading}/>
           
 

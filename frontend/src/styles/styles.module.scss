@@ -349,6 +349,8 @@ global components ends
           font-weight: bold;
         }
         td {
+          background-image: linear-gradient(to bottom right, #f5f5f5, #d3d3d3);
+          font-weight: bold;
           &:nth-child(1) {
             width: 5%;
             text-align: center;
@@ -468,12 +470,6 @@ global components ends
   Summery cards Starts
   */
   .product-summery {
-    background-color: rgb(112, 133, 201);
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    display: inline-block;
-    width: 25rem;
     text-align: center;
   }
   
@@ -483,23 +479,43 @@ global components ends
   }
   
   .info-summery {
+    display: flex;
     margin-top: 20px;
-    color: white;
+    gap: 6rem;
+    padding: 20px;
   }
 
   /*
   Summery cards Ends
   */
 
+  .card1 {
+    background-color: #44aedf;
+  }
+  .card2 {
+    background-color: #57c764;
+  }
+  .card3 {
+    background-color: #e28da5;
+  }
+  
+
   /*
   Info box Starts
   */
   .icon-box{
-    display: flex;
-    .info-text{
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: inline-block;
+    width: 25rem;
+    text-align: center;
+    .info-text {
       display: flex;
-      
+      color: white;
     }
+    transition: all 0.3s;
+    cursor: pointer;
   }
   /*
   Info box Ends
@@ -527,4 +543,6 @@ global components ends
 
 /*Inventory page starts*/
 
-
+.summery-holder{
+  text-align: center;
+}

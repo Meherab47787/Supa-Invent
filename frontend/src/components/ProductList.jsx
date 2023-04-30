@@ -49,7 +49,6 @@ const ProductList = ({products, isLoading}) => {
     }, [products, search, dispatch])
 
   return <div className={styles['product-list']}>
-    <hr />
     <div className={styles['table']}>
         <div className={styles['flex-table-column']}>
             <span>
