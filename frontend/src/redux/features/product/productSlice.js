@@ -49,19 +49,36 @@ const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
-        CALCULATE_STORE_VALUE(state, action){
-            const products = action.payload
-            const array = []
+        CALCULATE_STORE_VALUE(state, action) {
+            const products = action.payload;
+            const array = [];
             products.map((item)=>{
-                const { unitPrice, quantity } = item
-                const productValue = unitPrice * quantity
-                return array.push(productValue)
+                const { unitPrice, quantity } = item;
+                const productValue = unitPrice * quantity;
+                return array.push(productValue);
             })
             const totalValue = array.reduce((accumulator, currentValue) => {
-                return accumulator + currentValue
+                return accumulator + currentValue;
             }, 0)
             state.totalStoreValue = totalValue;
         },
+
+        CALFULATE_OUTOFSTOCK(state, action) {
+            const products = action.payload;
+            const array = [];
+            // eslint-disable-next-line array-callback-return
+            products.map((item) => {
+                const { quantity } = item;
+                if(quantity === 0){
+                    
+                    array.push(quantity)
+
+                }
+            })
+
+            state.outOfStock = array.length
+
+        }
     },
     extraReducers: (builder) => {
         builder 
@@ -110,10 +127,12 @@ const productSlice = createSlice({
 
 
 
-export const { CALCULATE_STORE_VALUE } = productSlice.actions;
+export const { CALCULATE_STORE_VALUE, CALFULATE_OUTOFSTOCK } = productSlice.actions;
 
 export const selectIsLoading = (state) => state.product.isLoading;
 
 export const selectTotalStoreValue = (state) => state.product.totalStoreValue;
+
+export const selectOutOfStock = (state) => state.product.outOfStock;
 
 export default productSlice.reducer;

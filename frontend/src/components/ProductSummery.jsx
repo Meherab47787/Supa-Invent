@@ -4,7 +4,7 @@ import { TbCurrencyTaka } from 'react-icons/tb';
 import { BsCart4, BsCartX } from 'react-icons/bs'
 import InfoBox from './InfoBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { CALCULATE_STORE_VALUE, selectTotalStoreValue } from '../redux/features/product/productSlice';
+import { CALCULATE_STORE_VALUE, selectTotalStoreValue, CALFULATE_OUTOFSTOCK, selectOutOfStock } from '../redux/features/product/productSlice';
 
 export const formatNumbers = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -19,9 +19,11 @@ const ProductSummery = ({products}) => {
 
   const dispatch = useDispatch();
   const totalStoreValue = useSelector(selectTotalStoreValue);
+  const outOfStock = useSelector(selectOutOfStock)
 
   useEffect(() => {
     dispatch(CALCULATE_STORE_VALUE(products))
+    dispatch(CALFULATE_OUTOFSTOCK(products))
   }, [dispatch, products])
 
 
@@ -42,7 +44,7 @@ const ProductSummery = ({products}) => {
                     <InfoBox 
                     icon={outofStockIcon}
                     title={'Out of Stock'} 
-                    count={0}
+                    count={outOfStock}
                     bgColor='card3'/>
                 </div>
           </div>
