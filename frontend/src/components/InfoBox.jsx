@@ -4,12 +4,9 @@ import styles from '../styles/styles.module.scss';
 const InfoBox = ({title, count, icon, bgColor}) => {
   return (
     <div className={`${styles['icon-box']} ${styles[bgColor]}`} >
-        <span className={styles['info-icon']}>{icon}</span>
-        <span className={styles['info-text']}>
-            <p>{title}:</p>
-            <h4> {count}</h4>
-        </span>
-    </div>
+        <div className={styles['info-icon']}>{icon}</div>
+        <h4>{title}: {count}</h4>
+     </div>
   )
 }
 
