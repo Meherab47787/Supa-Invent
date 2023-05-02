@@ -36,7 +36,7 @@ const ProductList = ({products, isLoading}) => {
 
         confirmAlert({
             title: 'Delete Product',
-            message: 'Are you sure? This product will be deleted from the inventory',
+            message: 'Are you sure? This product will be deleted from the inventory.',
             buttons: [
               {
                 label: 'Yes',
