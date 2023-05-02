@@ -37,7 +37,7 @@ const ProductSummery = ({products}) => {
 
                     <InfoBox 
                     icon={iconTaka}
-                    title={'Total Store Value'} 
+                    title={'Total Value'} 
                     count={`৳ ${formatNumbers(totalStoreValue.toFixed(2))}`}
                     bgColor='card2'/>
 
