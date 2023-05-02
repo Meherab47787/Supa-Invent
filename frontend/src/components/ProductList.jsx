@@ -7,6 +7,9 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_PRODUCTS, selectFilteredProducts } from '../redux/features/product/filterSlice';
 import ReactPaginate from 'react-paginate';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import { deleteProduct, getAllProducts } from '../redux/features/product/productSlice';
 
 const ProductList = ({products, isLoading}) => {
     
@@ -23,6 +26,27 @@ const ProductList = ({products, isLoading}) => {
 
         return text;
 
+    }
+    const delProduct = async (id) => {
+        await dispatch(deleteProduct(id))
+        await dispatch(getAllProducts())
+    }
+
+    const confirmDelete = (id) => {
+
+        confirmAlert({
+            title: 'Delete Product',
+            message: 'Are you sure? This product will be deleted from the inventory',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => delProduct(id)
+              },
+              {
+                label: 'No'
+              }
+            ]
+          })
     }
 
     //Pagination Begin
@@ -104,7 +128,12 @@ const ProductList = ({products, isLoading}) => {
 
                                                 <span>
 
-                                                    <AiFillDelete color='red' size={25}/>
+                                                    <AiFillDelete color='red' 
+                                                    size={25}
+                                                    onClick={() => {
+                                                        confirmDelete(_id)
+                                                    }}
+                                                    />
 
                                                 </span>
 

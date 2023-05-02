@@ -44,6 +44,20 @@ export const getAllProducts = createAsyncThunk(
     }
 )
 
+//delete a product
+
+export const deleteProduct = createAsyncThunk(
+    'products/delete',
+    async (id, thunkAPI) => {
+        try {
+            return await productService.deleteProduct(id)
+        } catch (error) {
+            console.log(error.message);
+            return thunkAPI.rejectWithValue(error.message)
+        }
+    }
+)
+
 
 const productSlice = createSlice({
     name: 'product',
@@ -82,6 +96,7 @@ const productSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder 
+                //create Product
                .addCase(createProduct.pending, (state) => {
                     state.isLoading = true;
                })
@@ -103,7 +118,9 @@ const productSlice = createSlice({
                     console.log(action.payload);
                     toast.error(action.payload)
                 })
+                
                 //getAll
+
                .addCase(getAllProducts.pending, (state) => {
                     state.isLoading = true;
                 })
@@ -122,6 +139,27 @@ const productSlice = createSlice({
                     state.message = action.payload;
                     toast.error(action.payload)
                 })
+                
+                //delete product
+
+                .addCase(deleteProduct.pending, (state) => {
+                    state.isLoading = true
+                })
+
+                .addCase(deleteProduct.fulfilled, (state) => {
+                    state.isLoading = false;
+                    state.isSuccess = true;
+                    state.isError = false;
+                    toast.success('Product Deleted Successgully')
+                })
+                .addCase(deleteProduct.rejected, (state, action) => {
+                    state.isLoading = false;
+                    state.isError = true;
+                    state.message = action.payload;
+                    toast.error(action.payload)
+                })
+
+
     }
 })
 
