@@ -559,3 +559,40 @@ global components ends
 .summery-holder{
   text-align: center;
 }
+
+/*Inventory page ends*/
+
+
+/*Product Details page Starts*/
+
+.product-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #ccc;
+
+  & img {
+    width: 120px;
+    height: auto;
+    margin-right: 16px;
+  }
+
+  & .product-info {
+    flex: 1;
+
+    & .product-name {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    & .product-price,
+    & .product-quantity,
+    & .product-arrival {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+  }
+}
+
+/*Product Details page Ends*/

@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getLoginStatus } from './services/authService';
 import { SET_LOGIN } from './redux/features/auth/authSlice';
+import ProductDetails from './pages/ProductDetails';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/addProduct' element={<AddProduct/>}/>
           <Route path='/suppliers' element={<Suppliers/>}/>
           <Route path='/reportBug' element={<ReportBug/>}/>
+          <Route path='/product-details/:id' element={<ProductDetails/>}/>
         
         </Routes>
 

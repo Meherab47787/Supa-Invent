@@ -15,10 +15,7 @@ exports.getAllProducts = catchAsync(async (req, res, next) => {
 })
 
 exports.getSpecificProduct = catchAsync(async (req, res, next) => {
-    const speceficProduct = await Product.findById(req.params.id).populate({
-        path: 'supplier',
-        select: '-__v -_id'
-    });
+    const speceficProduct = await Product.findById(req.params.id);
 
     if(!speceficProduct){
         return next(new AppError('No products found with the input credential(s)', 404))

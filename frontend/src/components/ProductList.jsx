@@ -10,6 +10,7 @@ import ReactPaginate from 'react-paginate';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { deleteProduct, getAllProducts } from '../redux/features/product/productSlice';
+import { Link } from 'react-router-dom';
 
 const ProductList = ({products, isLoading}) => {
     
@@ -17,6 +18,8 @@ const ProductList = ({products, isLoading}) => {
     const filteredProducts = useSelector(selectFilteredProducts)
 
     const dispatch = useDispatch()
+
+    
 
     const shortenText = (text, n) => {
         if(text.length> n){
@@ -120,9 +123,13 @@ const ProductList = ({products, isLoading}) => {
                                                 </span>
                                             
                                                 <span>
+                                                    <Link to={`/product-details/${_id}`}>
+
+                                                        <BsFillExclamationCircleFill 
+                                                            color='purple' 
+                                                            size={25}/>
                                                     
-                                                    <BsFillExclamationCircleFill 
-                                                color='purple' size={25}/>
+                                                    </Link>
 
                                                 </span>
 
