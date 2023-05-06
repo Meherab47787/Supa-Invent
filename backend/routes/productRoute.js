@@ -24,7 +24,7 @@ router
 
 router
       .route('/updateProduct/:id')
-      .patch(Authentication.protect, productController.updateProduct)
+      .patch(Authentication.protect, upload.single('productImage'), productController.updateProduct)
 
 
 

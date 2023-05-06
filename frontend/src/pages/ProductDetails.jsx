@@ -51,7 +51,7 @@ const ProductDetails = () => {
                         <h2 className={styles['product-name']}>{product?.productName}</h2>
                         <p className={styles['product-price']}>Unit Price: {product?.unitPrice}</p>
                         <p className={styles['product-quantity']}>Available Quantity: {product?.quantity}</p>
-                        <p className={styles['product-arrival']}>Arrival Date: {product?.arrivalDate}</p>
+                        <p className={styles['product-arrival']}>Arrival Date: {product?.arrivalDate.split('T')[0]}</p>
                     </div>
                 </div>
             </div>

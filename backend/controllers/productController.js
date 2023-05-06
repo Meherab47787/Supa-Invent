@@ -48,6 +48,8 @@ exports.createNewProduct = catchAsync(async (req, res, next) => {
         }
     }
 
+    console.log(req.body);
+
     const newProduct = await Product.create({
         productName: req.body.productName,
         quantity: req.body.quantity,
@@ -55,6 +57,8 @@ exports.createNewProduct = catchAsync(async (req, res, next) => {
         arrivalDate: req.body.arrivalDate,
         productImage: fileData
     })
+
+    console.log(req.body);
 
     res
        .status(201)
@@ -88,8 +92,51 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
 
 
 exports.updateProduct = catchAsync(async (req, res, next) =>{
-    res.send('Update Product')
+    const { productName, unitPrice, quantity } = req.body;
+
+    const { id } = req.params
+
+    const product = await Product.findById(id);
+
+
+    if(!product){
+        next(new AppError('The product doesnot exist', 404))
+    }
+
+    let fileData = {};
+    if(req.file) {
+        fileData = {
+            fineName: req.file.originalName,
+            filePath: req.file.path,
+            fileType: req.file.mimetype,
+            fileSize: req.file.size
+        }
+    }
+
+
+    const updatedProduct = await Product.findByIdAndUpdate({_id: id}, { 
+        productName: req.body.productName,
+        quantity: req.body.quantity,
+        unitPrice: req.body.unitPrice,
+        arrivalDate: req.body.arrivalDate,
+        productImage: Object.keys(fileData).length === 0 ? product?.productImage : fileData, 
+    }, {
+        new: true, 
+        runValidators: true
+    })
+
+    res
+       .status(200)
+       .json({
+            status: 'success',
+            data: {
+                updatedProduct
+            }
+       }) 
+
 })
+
+
 
 
 
