@@ -70,6 +70,19 @@ export const getAproduct = createAsyncThunk(
     }
 )
 
+export const updateProduct = createAsyncThunk(
+    'product/updateProduct',
+    async ({id, formData}, thunkAPI) => {
+        try {
+            return await productService.updateproduct(id, formData)
+        } catch (error) {
+            console.log(error.message);
+            return thunkAPI.rejectWithValue(error.message)
+        }
+    }
+)
+
+
 
 const productSlice = createSlice({
     name: 'product',
@@ -141,7 +154,6 @@ const productSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.isError = false;
-                console.log(action.payload.products);
                 state.products = action.payload.products
                 })
 
@@ -190,6 +202,26 @@ const productSlice = createSlice({
                     state.message = action.payload;
                     toast.error(action.payload)
                 })
+
+                //UPDATE PRODUCT
+
+                .addCase(updateProduct.pending, (state) => {
+                    state.isLoading = true;
+                })
+
+                .addCase(updateProduct.fulfilled, (state, action) => {
+                    state.isLoading = false;
+                    state.isSuccess = true;
+                    state.isError = false;
+                    toast.success('Product Updated Successfully')
+                })
+                .addCase(updateProduct.rejected, (state, action) => {
+                    state.isLoading = false;
+                    state.isError = true;
+                    state.isSuccess = false;
+                    state.message = action.payload;
+                    toast.error(action.payload)
+                })
             
 
 
@@ -205,5 +237,7 @@ export const selectIsLoading = (state) => state.product.isLoading;
 export const selectTotalStoreValue = (state) => state.product.totalStoreValue;
 
 export const selectOutOfStock = (state) => state.product.outOfStock;
+
+export const selectProduct = (state) => state.product.product
 
 export default productSlice.reducer;

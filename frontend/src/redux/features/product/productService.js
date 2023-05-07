@@ -25,8 +25,14 @@ const getAproduct = async (id) => {
     return response.data.data.speceficProduct;
 }
 
+const updateproduct = async (id, formData) => {
+    const response = await axios.patch(`/api/v1/products/updateProduct/${id}`, formData)
+    return response.data.data.updatedProduct;
+}
+
 
 const productService = {
+    updateproduct,
     createProduct,
     getAllProducts,
     deleteProduct,

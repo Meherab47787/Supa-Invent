@@ -117,9 +117,10 @@ const ProductList = ({products, isLoading}) => {
                                         <td>{arrivalDate.split('T')[0]}</td>
                                         <td className={styles['icons']}>
                                                 <span>
-                                                
-                                                    <FaEdit color='blue' size={25}/>
 
+                                                    <Link to={`/product-edit/${_id}`}>
+                                                        <FaEdit color='blue' size={25}/>
+                                                    </Link>
                                                 </span>
                                             
                                                 <span>
