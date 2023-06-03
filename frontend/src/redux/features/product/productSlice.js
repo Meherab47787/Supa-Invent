@@ -174,7 +174,7 @@ const productSlice = createSlice({
                     state.isLoading = false;
                     state.isSuccess = true;
                     state.isError = false;
-                    toast.success('Product Deleted Successgully')
+                    toast.success('Product Deleted Successfully')
                 })
                 .addCase(deleteProduct.rejected, (state, action) => {
                     state.isLoading = false;

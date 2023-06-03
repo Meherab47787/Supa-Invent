@@ -11,9 +11,7 @@ exports.getAllSuppliers = catchAsync(async (req, res, next) => {
        .json({
            status: 'success',
            total: suppliers.length,
-           data: {
-               suppliers
-           }
+           suppliers
         })
         
     next()    

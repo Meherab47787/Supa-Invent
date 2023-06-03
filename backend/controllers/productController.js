@@ -15,7 +15,7 @@ exports.getAllProducts = catchAsync(async (req, res, next) => {
 })
 
 exports.getSpecificProduct = catchAsync(async (req, res, next) => {
-    const speceficProduct = await Product.findById(req.params.id);
+    const speceficProduct = await Product.findById(req.params.id).populate('supplier');
 
     if(!speceficProduct){
         return next(new AppError('No products found with the input credential(s)', 404))
@@ -55,10 +55,10 @@ exports.createNewProduct = catchAsync(async (req, res, next) => {
         quantity: req.body.quantity,
         unitPrice: req.body.unitPrice,
         arrivalDate: req.body.arrivalDate,
-        productImage: fileData
+        productImage: fileData,
+        supplier: req.body.supplier
     })
 
-    console.log(req.body);
 
     res
        .status(201)

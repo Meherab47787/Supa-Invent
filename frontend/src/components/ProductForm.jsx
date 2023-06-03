@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from '../styles/styles.module.scss'
 
-const ProductForm = ({product, productImage, imagePreview, handleInputChange, handleImageChange, saveProduct}) => {
+const ProductForm = ({product, productImage, imagePreview, handleInputChange, handleImageChange, handleSupplierChange, saveProduct, suppliers}) => {
+
+  
 
   
     return (
@@ -27,10 +29,15 @@ const ProductForm = ({product, productImage, imagePreview, handleInputChange, ha
           <label htmlFor="unitPrice">Unit Price</label>
           <input type="text" id="unitPrice" name="unitPrice" value={product?.unitPrice} onChange={handleInputChange} required/>
         </div>
-        {/* <div className={styles.formGroup}>
+        <div className={styles.formGroup}>
           <label htmlFor="supplier">Supplier</label>
-          <input type="text" id="supplier" name="supplier" value={product?.supplier} onChange={handleInputChange} />
-        </div> */}
+          <select id="supplier" name="supplier" value={product?.supplier} onChange={handleSupplierChange} required>
+            <option value="">Select Supplier</option>
+            {suppliers.map((supplier, index)=>{
+              return (<option key={supplier._id} value={supplier._id}>{supplier.name}</option>)
+            })}
+          </select>
+        </div>
         <button type="submit">Add Product</button> 
       </form>
     );
