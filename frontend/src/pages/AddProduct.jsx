@@ -7,7 +7,6 @@ import { createProduct} from '../redux/features/product/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { getAllSupplier } from '../redux/features/supplier/supplierSlice';
-import { selectISLoggedIn } from '../redux/features/auth/authSlice'
 
 const initialState = {
       productName: '',

@@ -127,7 +127,7 @@ const ProductList = ({products, isLoading}) => {
                                                     <Link to={`/product-details/${_id}`}>
 
                                                         <BsFillExclamationCircleFill 
-                                                            color='purple' 
+                                                            color='green' 
                                                             size={25}/>
                                                     
                                                     </Link>
